@@ -1,7 +1,9 @@
+import Home from "./assets/Home";
+
 function App() {
   return (
     <>
-      <h1 className="text-center">S.Blaze</h1>
+      <Home></Home>
     </>
   );
 }
