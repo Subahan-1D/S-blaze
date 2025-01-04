@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [theme, setTheme] = useState("light");
@@ -24,7 +25,7 @@ const Header = () => {
   console.log(theme);
   return (
     <div>
-      <div className="navbar bg-base-100 shadow fixed z-50">
+      <div className="navbar bg-base-100 shadow-lg  z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,10 +49,10 @@ const Header = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Home</a>
+                <Link to='/'>Home</Link>
               </li>
               <li>
-                <a>Blogs</a>
+                <a>Food</a>
               </li>
               <li>
                 <a>Bookmarks</a>
@@ -96,7 +97,7 @@ const Header = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-2xl text-primary font-bold">
-            S.Blaze
+            S.Food
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -105,7 +106,7 @@ const Header = () => {
               <a>Home</a>
             </li>
             <li className="font-bold">
-              <a>Blogs</a>
+              <a>Foods</a>
             </li>
             <li className="font-bold">
               <a>Bookmarks</a>
