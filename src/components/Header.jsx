@@ -52,7 +52,7 @@ const Header = () => {
                 <Link to='/'>Home</Link>
               </li>
               <li>
-                <a>Food</a>
+                <Link to='/blogs'>Food</Link>
               </li>
               <li>
                 <a>Bookmarks</a>
@@ -103,10 +103,10 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-xl">
             <li className="font-bold">
-              <a>Home</a>
+              <Link to='/'>Home</Link>
             </li>
             <li className="font-bold">
-              <a>Foods</a>
+              <Link to='/blogs'>Foods</Link>
             </li>
             <li className="font-bold">
               <a>Bookmarks</a>
