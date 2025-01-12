@@ -7,12 +7,13 @@ import Login from "./pages/Login/Login.jsx";
 import Registration from "./pages/Register/Register.jsx";
 import Blogs from "./pages/Blogs.jsx";
 import Error from "./ErrorElement/Error.jsx";
+import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
-    errorElement:<Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -36,6 +37,8 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById("root")).render(
   <>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </>
 );
