@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
   const [theme, setTheme] = useState("light");
+  const { user, logOut ,  } = useAuth();
 
   useEffect(() => {
     const localTheme = localStorage.getItem("theme") || "light";
@@ -49,10 +51,10 @@ const Header = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link to='/'>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to='/blogs'>Food</Link>
+                <Link to="/blogs">Food</Link>
               </li>
               <li>
                 <a>Bookmarks</a>
@@ -103,10 +105,10 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-xl">
             <li className="font-bold">
-              <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="font-bold">
-              <Link to='/blogs'>Foods</Link>
+              <Link to="/blogs">Foods</Link>
             </li>
             <li className="font-bold">
               <a>Bookmarks</a>
@@ -150,9 +152,38 @@ const Header = () => {
             </label>
           </ul>
         </div>
-        <div className="navbar-end">
-          <Link to='/login' className="btn btn-secondary">Login</Link>
-        </div>
+        {user ? (
+          <div className="flex items-center space-x-4">
+            {/* Profile Picture */}
+            {user?.photoURL && (
+              <div className="relative">
+                <img
+                  referrerPolicy="no-referrer"
+                  alt="User Profile"
+                  src={user?.photoURL}
+                  className="w-10 h-10 rounded-full border-2 border-yellow-500"
+                />
+              </div>
+            )}
+            {/* Logout Button */}
+            <button
+              onClick={logOut}
+              className="btn bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-md transition-all duration-300"
+            >
+              LogOut
+            </button>
+          </div>
+        ) : (
+          <div className="navbar-end">
+            {/* Login Button */}
+            <Link
+              to="/login"
+              className="btn bg-yellow-500 hover:bg-yellow-600 text-black px-5 py-2 rounded-md transition-all duration-300"
+            >
+              Login
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
