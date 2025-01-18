@@ -1,9 +1,12 @@
 import React from "react";
+import HomeCard from "../components/HomeCard/HomeCard";
 
 const Home = () => {
-  return <div>
-    <h2>This is Home page </h2>
-  </div>;
+  return (
+    <div>
+      <HomeCard></HomeCard>
+    </div>
+  );
 };
 
 export default Home;
